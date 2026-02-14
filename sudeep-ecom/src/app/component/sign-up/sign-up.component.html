@@ -1,0 +1,40 @@
+<div class="sign-up-container">
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()" style="scale: calc(150%);">
+        
+        <p>Enter Your Name</p>
+        <input type="text" formControlName="name" >
+        <div *ngIf="userForm.get('name')?.invalid && userForm.get('name')?.touched" style="color: red;">
+            Please Enter Valid Email Address
+        </div>
+
+        <p>Enter Your Email</p>
+        <input type="text" formControlName="email" >
+        <div *ngIf="userForm.get('email')?.invalid && userForm.get('email')?.touched" style="color: red;">
+            Please Enter Valid Email Address
+        </div>
+        <div *ngIf="!isEmailUnique" style="color: red;">
+            This Email is already taken
+        </div>
+        <p>Enter Your Password</p>
+        <input type="password" formControlName="password">
+        <div *ngIf="userForm.get('password')?.invalid && userForm.get('password')?.touched" style="color: red;">
+            Enter Password atleast of five length
+        </div>
+        <div *ngIf="!isPasswordUnique" style="color: red;">
+            This password is used
+        </div>
+         <p>Confirm Your Password</p>
+        <input type="password" formControlName="confirmPassword">
+        <div *ngIf="userForm.get('confirmPassword')?.invalid && userForm.get('confirmPassword')?.touched" style="color: red;">
+            Enter Password atleast of five length
+        </div>
+
+        <br>
+        <br>
+        <p *ngIf="isPasswordMaching" style="color: red;">password is not matched</p>
+        <button>Sign Up</button>
+        <div style="margin-top: 10px;">
+            Go to Sign in <a routerLink="/">Sign In</a> 
+        </div>
+    </form>
+</div>

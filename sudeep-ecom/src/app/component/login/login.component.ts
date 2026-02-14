@@ -12,9 +12,8 @@ export class LoginComponent{
     email:new FormControl('',[Validators.required,Validators.email]),
     password:new FormControl('',[Validators.required,Validators.minLength(5)])
   })
-  inValidCredential = false;
 
-  
+  inValidCredential = false;
 
   isSignUp(){
 
@@ -38,6 +37,12 @@ export class LoginComponent{
     if(this.isSignUp()){
         // naviggation to dash board
 
+        let user = {
+          email:this.userForm.value.email,
+          password:this.userForm.value.password
+        }
+        localStorage.setItem('logUser',JSON.stringify(user));
+        
 
     }
     else{

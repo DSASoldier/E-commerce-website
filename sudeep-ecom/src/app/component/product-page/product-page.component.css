@@ -38,3 +38,17 @@
     padding-left: 15px;
     padding-right: 15px;
 }
+
+.nav-right-bar{
+    display: flex;
+    justify-content: space-between;
+    width: 15%;
+}
+
+.history{
+    scale: calc(150%);
+}
+
+.history:hover{
+    cursor: pointer;
+}

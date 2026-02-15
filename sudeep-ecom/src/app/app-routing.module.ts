@@ -7,13 +7,15 @@ import { logedInDeactiveGuard } from './loged-in-deactive.guard';
 import { combineLatest } from 'rxjs';
 import { ProductDetailPageComponent } from './component/product-detail-page/product-detail-page.component';
 import { CartPageComponent } from './component/cart-page/cart-page.component';
+import { UserHistoryComponent } from './user-history/user-history.component';
 
 const routes: Routes = [
   {path:'',component:LoginComponent},
   {path:'sign-up',component:SignUpComponent},
   {path:'product-page',component:ProductPageComponent},
   {path:'productDetailPage',component:ProductDetailPageComponent},
-  {path:'cart-page',component:CartPageComponent}
+  {path:'cart-page',component:CartPageComponent},
+  {path:'user-history',component:UserHistoryComponent}
 ];
 
 @NgModule({

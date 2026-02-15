@@ -1,9 +1,12 @@
 <nav class="nav-bar">
 
     <div style="display: flex;justify-content: center;align-items: center; scale: calc(150%); color: white;">SudeepEcom</div>
-    <div style=" margin: 20px;scale: calc(200%);" (click)="clickOnCart()" class="cart">
-        <div style="color: white;">Cart</div>
-        <div style="display:flex; justify-content: center; color: white;">{{totalCart}}</div>
+    <div class="nav-right-bar">
+        <div style="color: white; font-size: large; display:flex; justify-content: center;align-items: center;" class="history" (click)="goToHistoryPage()">History</div>
+        <div style=" margin: 20px;scale: calc(200%);" (click)="clickOnCart()" class="cart">
+            <div style="color: white;">Cart</div>
+            <div style="display:flex; justify-content: center; color: white;">{{totalCart}}</div>
+        </div>
     </div>
 </nav>
 <div>

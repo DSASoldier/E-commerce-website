@@ -26,4 +26,9 @@ export class CartPageComponent {
   removeFromCard(index: number){
     this.dataSource.removeUserData(this.userData[index]);
   }
+
+  payOrder(index: number){
+
+    this.dataSource.orderHistory(this.userData[index]);
+  }
 }

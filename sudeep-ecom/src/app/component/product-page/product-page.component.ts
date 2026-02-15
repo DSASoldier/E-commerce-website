@@ -39,4 +39,16 @@ export class ProductPageComponent implements canLogInUserGoBack {
   clickOnCart(){
     this.route.navigate(['/cart-page']);
   }
+
+  goToHistoryPage(){
+    const user = (localStorage.getItem('logUser') || '{}');
+
+    const historyData = JSON.parse(localStorage.getItem('historydata') || '[]');
+
+    console.log(JSON.parse(localStorage.getItem('historyData') || '[]'));
+    
+    this.route.navigate(['/user-history'],{
+      queryParams:{data:historyData}
+    });
+  }
 }

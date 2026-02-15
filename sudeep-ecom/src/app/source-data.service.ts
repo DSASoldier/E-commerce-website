@@ -4,6 +4,7 @@ import { elementAt } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
+
 export class SourceDataService {
 
   constructor() { }
@@ -25,7 +26,6 @@ export class SourceDataService {
 
     const userData = JSON.parse(localStorage.getItem(user.password) || '[]');
 
-    
     let flag=false;
     userData.forEach((element:any)=>{
       if(element.title===data.title){
@@ -33,9 +33,7 @@ export class SourceDataService {
         element.count=(element.count?element.count:0)+1;
       }
     })
-    
-    
-    
+     
     if(flag===false){
       data.count=0
       userData.push(data);
@@ -65,8 +63,6 @@ export class SourceDataService {
       }
     })
     
-    
-    
     if(flag===false){
       
       userData = userData.filter((element: any)=>{
@@ -81,4 +77,27 @@ export class SourceDataService {
 
   }
 
+  orderHistory(data: any){
+
+    const user = JSON.parse(localStorage.getItem('logUser') || '{}');
+
+    const userHistorydata = JSON.parse(localStorage.getItem(`${JSON.stringify(user) + 'history'}`) || '[]');
+
+    const historyData = JSON.parse(localStorage.getItem("historyData") || '[]');
+
+    for(let i=0;i<userHistorydata.length;i++){
+      if(historyData[i].title===data.title) return ;
+    }
+
+    userHistorydata.push(data);
+
+    console.log(userHistorydata,historyData);
+  
+    historyData.push(data);
+
+    localStorage.setItem(`${JSON.stringify(user) + 'history'}`,userHistorydata);
+
+    localStorage.setItem("historyData",JSON.stringify(historyData));
+    
+  }
 }

@@ -10,6 +10,7 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 import { ProductPageComponent } from './component/product-page/product-page.component';
 import { CardComponent } from './component/card/card.component';
 import { CartPageComponent } from './component/cart-page/cart-page.component';
+import { UserHistoryComponent } from './user-history/user-history.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { CartPageComponent } from './component/cart-page/cart-page.component';
     ProductPageComponent,
     CardComponent,
     CartPageComponent,
+    UserHistoryComponent,
   ],
   imports: [
     BrowserModule,

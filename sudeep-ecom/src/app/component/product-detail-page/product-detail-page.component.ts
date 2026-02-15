@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
+import { SourceDataService } from 'src/app/source-data.service';
 
 @Component({
   selector: 'app-product-detail-page',
@@ -17,7 +18,7 @@ export class ProductDetailPageComponent {
     money:''
   };
 
-  constructor(private route : ActivatedRoute) {
+  constructor(private route : ActivatedRoute,private dataSource:SourceDataService) {
     
     route.queryParams.subscribe((data)=>{
 
@@ -34,6 +35,8 @@ export class ProductDetailPageComponent {
     let cart =JSON.parse(localStorage.getItem(`${user+'count'}`) || '0');
 
     console.log(cart);
+    
+    this.dataSource.setUserData(this.productDetail);
     
     localStorage.setItem(`${user+'count'}`,cart+1);
   }

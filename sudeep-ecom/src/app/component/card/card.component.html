@@ -1,7 +1,7 @@
 <div class="card-container" >
 
-    <div class="card" *ngFor="let data of userData; let i = index" (click)="goToDetailPage(i)">
-        <div class="image-container">
+    <div class="card" *ngFor="let data of userData; let i = index" >
+        <div class="image-container" (click)="goToDetailPage(i)">
             <img src="../../../favicon.ico">
         </div>
     

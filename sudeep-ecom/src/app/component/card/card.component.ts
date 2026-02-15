@@ -70,7 +70,6 @@ export class CardComponent {
   addToCard(index:number){
     this.cardTotal++;
 
-
     this.sourceData.setUserData(this.dummyData[index]);
 
     this.emitCardTotal.emit(this.cardTotal);

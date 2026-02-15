@@ -6,12 +6,14 @@ import { ProductPageComponent } from './component/product-page/product-page.comp
 import { logedInDeactiveGuard } from './loged-in-deactive.guard';
 import { combineLatest } from 'rxjs';
 import { ProductDetailPageComponent } from './component/product-detail-page/product-detail-page.component';
+import { CartPageComponent } from './component/cart-page/cart-page.component';
 
 const routes: Routes = [
   {path:'',component:LoginComponent},
   {path:'sign-up',component:SignUpComponent},
   {path:'product-page',component:ProductPageComponent},
-  {path:'productDetailPage',component:ProductDetailPageComponent}
+  {path:'productDetailPage',component:ProductDetailPageComponent},
+  {path:'cart-page',component:CartPageComponent}
 ];
 
 @NgModule({

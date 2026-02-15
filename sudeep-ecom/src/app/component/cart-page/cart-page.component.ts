@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SourceDataService } from 'src/app/source-data.service';
 
 @Component({
   selector: 'app-cart-page',
@@ -7,4 +8,22 @@ import { Component } from '@angular/core';
 })
 export class CartPageComponent {
 
+  userData:any = []
+
+  constructor(private dataSource:SourceDataService){
+
+
+    console.log("fjrhbskjgnjknkj",dataSource.getUserdata());
+
+    this.userData=dataSource.getUserdata()
+
+  }
+
+  addToCard(index: number){
+    this.dataSource.setUserData(this.userData[index])
+  }
+
+  removeFromCard(index: number){
+    this.dataSource.removeUserData(this.userData[index]);
+  }
 }

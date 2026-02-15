@@ -7,12 +7,18 @@ import { LoginComponent } from './component/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SignUpComponent } from './component/sign-up/sign-up.component';
 import { RouterLink, RouterOutlet } from '@angular/router';
+import { ProductPageComponent } from './component/product-page/product-page.component';
+import { CardComponent } from './component/card/card.component';
+import { CartPageComponent } from './component/cart-page/cart-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    SignUpComponent
+    SignUpComponent,
+    ProductPageComponent,
+    CardComponent,
+    CartPageComponent,
   ],
   imports: [
     BrowserModule,

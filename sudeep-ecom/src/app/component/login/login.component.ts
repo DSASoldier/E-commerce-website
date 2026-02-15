@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { canLogInUserGoBack } from 'src/app/canLonInUsergoBack';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +15,11 @@ export class LoginComponent{
     password:new FormControl('',[Validators.required,Validators.minLength(5)])
   })
 
+  constructor(private route: Router) {}
+
   inValidCredential = false;
+
+  
 
   isSignUp(){
 
@@ -42,8 +48,7 @@ export class LoginComponent{
           password:this.userForm.value.password
         }
         localStorage.setItem('logUser',JSON.stringify(user));
-        
-
+        this.route.navigate(['/product-page'])
     }
     else{
       this.inValidCredential = true

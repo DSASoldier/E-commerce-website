@@ -1,0 +1,24 @@
+.container{
+    background-color:  rgb(223, 228, 130);
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.image{
+    scale: calc(40%);
+    width: '20%';
+    background-color: rgb(223, 228, 130);
+}
+
+.details{
+    scale: calc(150%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:rgb(223, 228, 130);
+    width: 50%;
+    height: 100vh;
+}

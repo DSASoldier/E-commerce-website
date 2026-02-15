@@ -1,0 +1,20 @@
+<div class="card-container" >
+
+    <div class="card" *ngFor="let data of userData; let i = index" (click)="goToDetailPage(i)">
+        <div class="image-container">
+            <img src="../../../favicon.ico">
+        </div>
+    
+        <div class="description">
+            <div style="display: flex;justify-content: space-between;">
+                <p>{{data.title}}</p>
+                <p>${{data.money}}</p>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+                <p>{{data.desc}}</p>
+                <button (click)="addToCard(i)">add to card</button>
+            </div>
+        </div>
+    </div>
+    
+</div>

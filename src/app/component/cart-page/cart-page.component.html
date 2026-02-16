@@ -1,0 +1,17 @@
+<div *ngFor="let user of userData; let i = index" class="cart">
+
+    <img src="{{user.img}}" class="image">
+    <div class="description">
+
+        <div>
+            <p>Title of product is {{user.title}}</p>
+            <p>description of {{user.desc}}</p>
+            <p>cost of single item ${{user.money}}</p>
+            <p>Total Cost ${{user.money*user.count}}</p>
+            <p>Total Item {{user.count}}</p>
+            <button (click)="addToCard(i)">+</button>
+            <button (click)="removeFromCard(i)">-</button>
+            <button (click)="payOrder(i)">Pay order</button>
+        </div>
+    </div>
+</div>

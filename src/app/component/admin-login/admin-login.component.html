@@ -1,0 +1,23 @@
+<div class="login-container">
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()" style="scale: calc(150%);">
+        <p class="form-header">Login as an Admin</p>
+    
+        <p>Enter Your Email</p>
+        <input type="text" formControlName="email" >
+        <div *ngIf="userForm.get('email')?.invalid && userForm.get('email')?.touched" style="color: red;">
+            Please Enter Valid Email Address
+        </div>
+
+        <p>Enter Your Password</p>
+        <input type="password" formControlName="password">
+        <div *ngIf="userForm.get('password')?.invalid && userForm.get('password')?.touched" style="color: red;">
+            Enter Password atleast of five length
+        </div>
+
+        <br>
+        <br>
+    
+        <button>Sign In</button>
+        <div style="color: red;" *ngIf="inValidCredential">Invalid credentials</div>
+    </form>
+</div>

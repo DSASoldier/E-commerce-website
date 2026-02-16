@@ -1,0 +1,27 @@
+.cart{
+    display: flex;
+    justify-content: space-between;
+    background-color: aqua;
+    height: 100vh;
+
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.description{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    scale: calc(150%);
+    overflow-y: hidden;
+}
+
+.image{
+    scale: calc(50%);
+}
+
+.container{
+    height: 100vh;
+    background-color: rgb(223, 228, 130);
+}

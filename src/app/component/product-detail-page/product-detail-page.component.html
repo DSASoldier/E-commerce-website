@@ -1,0 +1,13 @@
+<div class="container">
+
+    <img src="{{productDetail.img}}" class="image">
+
+    <div class="details">
+        <div>
+            <p>{{productDetail.title}}</p>
+            <p>{{productDetail.desc}}</p>
+            <p>${{productDetail.money}}</p>
+            <button (click)="updateCartItem()">Add to card</button>
+        </div>
+    </div>
+</div>

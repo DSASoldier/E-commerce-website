@@ -1,0 +1,25 @@
+.image-container{
+    height: 30vh;
+
+    display: flex;
+    justify-content: center;
+}
+
+.card-container{
+    height: 100vh;
+    margin: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+    gap: 10px; /* Space between items */
+    justify-content: center;
+    align-items: center;
+    margin-left: 100px;
+
+}
+
+.card{
+    background-color: rgb(94, 209, 100);
+    width: 60%;
+    padding: 20px;
+    
+}

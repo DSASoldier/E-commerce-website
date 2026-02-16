@@ -1,0 +1,22 @@
+.admin-nav{
+    display: flex;
+    justify-content: space-between;
+    padding-left: 30px;
+    padding-right: 30px;
+    background-color: rgb(223, 228, 130);
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+a{
+    color: black;
+}
+
+.container{
+    background-color: rgb(239, 243, 165);
+    height: 100vh;
+    margin-top: -20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

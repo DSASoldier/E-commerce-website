@@ -1,0 +1,34 @@
+<nav class="nav-bar">
+
+    <div style="display: flex;justify-content: center;align-items: center; scale: calc(150%); color: white;">SudeepEcom</div>
+    <div class="nav-right-bar">
+        <div style="color: white; font-size: large; display:flex; justify-content: center;align-items: center;" class="history" (click)="goToHistoryPage()">History</div>
+        <div style=" margin: 20px;scale: calc(200%);" (click)="clickOnCart()" class="cart">
+            <div style="color: white;">Cart</div>
+            <div style="display:flex; justify-content: center; color: white;">{{totalCart}}</div>
+        </div>
+        <div  style="color: white; font-size: large; display:flex; justify-content: center;align-items: center;" (click)="logoutUser()" class="history">Logout</div>
+    </div>
+</nav>
+<div>
+    <div class="container">
+        <input type="text" placeholder="search" class="search-bar" [(ngModel)]="search"
+        (change)="onChangeValue()"
+        >
+        <select class="category" [(ngModel)]="category" >'
+            <option value="" disabled selected>Select an category...</option>
+            <option>Shirt</option>
+            <option>Pants</option>
+            <option>Utensils</option>
+            <option>Toys</option>
+        </select>
+        <select class="price-filter" [(ngModel)]="priceFilter">'
+            <option value="" disabled selected>Select an price...</option>
+            <option>10-20</option>
+            <option>20-30</option>
+            <option>30-40</option>
+            <option>40-50</option>
+        </select>   
+    </div>
+    <app-card (emitCardTotal) = "updateCardNumber($event)" [cardTotal] = "totalCart" [search] = 'search' [category] = "category" [priceFilter]="priceFilter"/>
+</div>

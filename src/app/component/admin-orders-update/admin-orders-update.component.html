@@ -1,1 +1,12 @@
-<p>admin-orders-update works!</p>
+<div *ngFor="let product of products let i = index" class="data">
+    <p>{{product.email}}</p>
+    <p>{{product.title}}</p>
+    <p>{{product.money}}</p>
+    <p>{{product.desc}}</p>
+    <p>{{product.count}}</p>
+    <select #data (change)="statusUpdate(data.value,i)">
+        <option>Delivering</option>
+        <option>Delivered</option>
+        <option>cancel</option>
+    </select>
+</div>

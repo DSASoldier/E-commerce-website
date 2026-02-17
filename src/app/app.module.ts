@@ -18,6 +18,8 @@ import { AdminUpdateComponent } from './component/admin-update/admin-update.comp
 import { AdminDeleteComponent } from './component/admin-delete/admin-delete.component';
 import { AdminOrdersUpdateComponent } from './component/admin-orders-update/admin-orders-update.component';
 import { AdminOrdersComponent } from './component/admin-orders/admin-orders.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PageCannotAccessComponent } from './component/page-cannot-access/page-cannot-access.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +37,7 @@ import { AdminOrdersComponent } from './component/admin-orders/admin-orders.comp
     AdminDeleteComponent,
     AdminOrdersUpdateComponent,
     AdminOrdersComponent,
+    PageCannotAccessComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,7 +45,8 @@ import { AdminOrdersComponent } from './component/admin-orders/admin-orders.comp
     ReactiveFormsModule,
     RouterOutlet,
     RouterLink,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,1 +1,11 @@
-<p>admin-update works!</p>
+<div class="container">
+
+    <div *ngFor="let product of products; let i = index" class="product">
+        <p>{{product.title}}</p>
+        <p>{{product.desc}}</p>
+        <p>{{product.money}}</p>
+        <button (click)="updateButtonClick(i)">update</button>
+    </div>
+    
+
+</div>

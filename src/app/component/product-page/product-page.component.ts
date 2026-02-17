@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { canLogInUserGoBack } from 'src/app/canLonInUsergoBack';
+import { SourceDataService } from 'src/app/source-data.service';
 
 @Component({
   selector: 'app-product-page',
@@ -17,9 +18,20 @@ export class ProductPageComponent implements canLogInUserGoBack {
   priceFilter:HTMLSelectElement | null = null;
 
 
-  totalCart=JSON.parse(localStorage.getItem(`${this.user+'count'}`) || '0');
+  // totalCart=JSON.parse(localStorage.getItem(`${this.user+'count'}`) || '0');
+  totalCart=0;
   
-  constructor(private route:Router){}
+  constructor(private route:Router,private dataSource:SourceDataService){
+
+    this.totalCart = 0;
+    const userData = this.dataSource.getUserdata();
+
+    let sum=userData.length;
+    
+    
+    this.totalCart = sum;
+
+  }
 
   poissible(){
 
@@ -40,7 +52,16 @@ export class ProductPageComponent implements canLogInUserGoBack {
   }
 
   updateCardNumber(count:number){
-    this.totalCart = count;
+    // this.totalCart = count;
+
+    this.totalCart = 0;
+    const userData = this.dataSource.getUserdata();
+
+    let sum=userData.length;
+    
+    
+    this.totalCart = sum;
+
     const user = (localStorage.getItem('logUser') || '{}');
 
 

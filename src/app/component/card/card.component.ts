@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChange, SimpleChanges } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { elementAt } from 'rxjs';
@@ -78,9 +78,9 @@ export class CardComponent implements OnChanges {
     this.dummyData = this.userData;
   }
  
-  ngOnChanges(): void {
+  ngOnChanges(changes:SimpleChanges): void {
 
-  
+    console.log("changes on",changes)
     console.log(this.search);
     this.userData = this.dummyData.filter((element: any)=>{
       if(this.search===null) return true;
@@ -100,6 +100,7 @@ export class CardComponent implements OnChanges {
 
       return element.desc.toLowerCase() === this.category.toLowerCase();
     })
+
 
     
   }

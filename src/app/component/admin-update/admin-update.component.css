@@ -1,0 +1,11 @@
+.container{
+    height: 100vh;
+    width: 400px;
+}
+
+.product{
+    display: flex;
+    justify-content: space-between;
+    scale: calc(150%);
+    margin: 50px;
+}

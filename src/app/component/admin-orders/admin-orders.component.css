@@ -1,0 +1,7 @@
+.data{
+    display: flex;
+    justify-content: space-between;
+    width: 500px;
+    scale: calc(150%);
+    margin: 50px;
+}

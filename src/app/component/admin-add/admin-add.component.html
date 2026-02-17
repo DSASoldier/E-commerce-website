@@ -10,4 +10,6 @@
 
     <br><br>
     <button (click)="addTheProduct()">Add</button>
+    <p *ngIf="addClick" style="color: red;">product is added</p>
+    <p *ngIf="feildEmpty" style="color: red;">Field is empty</p>
 </div>

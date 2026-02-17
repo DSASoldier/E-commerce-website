@@ -62,13 +62,14 @@ export class AdminAddComponent {
   title=""
   desc=""
   price=""
+  addClick = false;
+  feildEmpty = false;
 
   addTheProduct(){
     const data = JSON.parse(localStorage.getItem("admin") || JSON.stringify(this.dummyData));
 
     if(this.title == "" || this.desc==="" || this.price === ""){
-
-      alert("Please Enter all the field");
+      this.feildEmpty = true;
       return ;
     }
     data.push({
@@ -78,6 +79,11 @@ export class AdminAddComponent {
       desc:this.desc
     })
 
+    this.addClick = true;
+
+    setTimeout(() => {
+      this.addClick = false;
+    }, 5000);
     console.log(data);
     
     localStorage.setItem("admin",JSON.stringify(data));

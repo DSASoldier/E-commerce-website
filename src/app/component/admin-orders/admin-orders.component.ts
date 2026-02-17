@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-admin-orders',
@@ -7,4 +8,13 @@ import { Component } from '@angular/core';
 })
 export class AdminOrdersComponent {
 
+  products = [{email:'',title:'',money:'',desc:'',count:''}];
+
+  constructor(){
+    const data = JSON.parse(localStorage.getItem("historyData") || "[]");
+
+
+    this.products = data;
+    console.log(this.products);
+  }
 }

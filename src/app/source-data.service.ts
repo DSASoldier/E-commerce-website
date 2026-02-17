@@ -92,10 +92,12 @@ export class SourceDataService {
     userHistorydata.push(data);
 
     console.log(userHistorydata,historyData);
-  
+    
+    data.email = user.email
     historyData.push(data);
 
     localStorage.setItem(`${user.password + 'history'}`,JSON.stringify(userHistorydata));
+
 
     localStorage.setItem("historyData",JSON.stringify(historyData));
     

@@ -1,3 +1,9 @@
-<div>
-    
+<div style="width: 100vh;">
+
+    <div *ngFor="let product of products; let i=index" class="content" (click)="deleteButtonClick(i)">
+        <p>{{product.title}}</p>
+        <p>${{product.money}}</p>
+        <p>{{product.desc}}</p>
+        <button>delete</button>
+    </div>
 </div>

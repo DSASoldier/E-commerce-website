@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { noWhitespaceValidator } from 'src/app/no-white-space-validator';
 
 @Component({
   selector: 'app-sign-up',
@@ -14,17 +15,17 @@ export class SignUpComponent implements OnInit {
   isPasswordUnique = true;
 
   constructor(private route : Router){}
-  userForm=new FormGroup({
-    name:new FormControl('',[Validators.required,Validators.minLength(3)]),
-    email: new FormControl('',[Validators.required,Validators.email]),
-    password: new FormControl('',[Validators.required,Validators.minLength(5)]),
-    confirmPassword: new FormControl('',[Validators.required,Validators.minLength(5)]),
+
+  userForm = new FormGroup({
+    name:new FormControl('',[Validators.required,Validators.minLength(3),noWhitespaceValidator()]),
+    email: new FormControl('',[Validators.required,Validators.email,noWhitespaceValidator()]),
+    password: new FormControl('',[Validators.required,Validators.minLength(5),noWhitespaceValidator()]),
+    confirmPassword: new FormControl('',[Validators.required,Validators.minLength(5),noWhitespaceValidator()]),
   })
 
   ngOnInit(): void {
 
-    
-    this.userForm.valueChanges.subscribe((data)=>{
+    this.userForm.valueChanges.subscribe((data:any)=>{
       
       this.isEmailUnique=true;
       this.isPasswordUnique=true;
@@ -32,10 +33,8 @@ export class SignUpComponent implements OnInit {
       let users = JSON.parse(localStorage.getItem('signUpUsers') || '[]');
 
       users.forEach((user: any)=>{
-        if(user.email.trim()===data.email?.trim()) this.isEmailUnique=false;
-        if(user.password.trim()===data.password?.trim()) this.isPasswordUnique=false;
+        if(user.email.trim() === data.email?.trim()) this.isEmailUnique=false;
       })
-
     })
   }
 

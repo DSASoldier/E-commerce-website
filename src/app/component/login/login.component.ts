@@ -10,6 +10,8 @@ import { canLogInUserGoBack } from 'src/app/canLonInUsergoBack';
 })
 export class LoginComponent{
 
+  hide = true;
+  
   userForm = new FormGroup({
     email:new FormControl('',[Validators.required,Validators.email]),
     password:new FormControl('',[Validators.required,Validators.minLength(5)])
@@ -47,8 +49,13 @@ export class LoginComponent{
           email:this.userForm.value.email,
           password:this.userForm.value.password
         }
+
         localStorage.setItem('logUser',JSON.stringify(user));
-        this.route.navigate(['/product-page'])
+        if(user.email?.trim()==='sudeep@gmail.com'){
+          this.route.navigate(['/admin-dashboard'])
+        }else{
+          this.route.navigate(['/product-page'])
+        }
     }
     else{
       this.inValidCredential = true

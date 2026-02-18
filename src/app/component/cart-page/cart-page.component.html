@@ -1,19 +1,24 @@
-<div *ngFor="let user of userData; let i = index" class="cart">
+<div class="cart-container">
+        <div *ngFor="let user of userData; let i = index" class="carts">
 
-    <img src="{{user.img}}" class="image">
-    <div class="description">
-
-        <div>
-            <p>Title of product is {{user.title}}</p>
-            <p>description of {{user.desc}}</p>
-            <p>cost of single item ${{user.money}}</p>
+            <p>{{user.title}}</p>
+            <p>{{user.desc}}</p>
+            <p>${{user.money}}</p>
             <p>Total Cost ${{user.money*user.count}}</p>
             <p>Total Item {{user.count}}</p>
-            <button (click)="addToCard(i)">+</button>
-            <button (click)="removeFromCard(i)">-</button>
-            <button (click)="payOrder(i)">Pay order</button>
+
+            <div class="item-update">
+                <button (click)="addToCard(i)" style="display: block;">+</button>
+                <img src="{{user.img}}" class="image">
+                <button *ngIf="user.count" (click)="removeFromCard(i)" style="display: block;">-</button>
+                <button *ngIf="!user.count" (click)="removeFromCard(i)" style="display: block;">removeItem</button>
+            </div>
+        </div>
+        
+        <p *ngIf="userData.length===0">No cart is Available</p>
+        <div class="footer">
+            <p>Total ${{totalPayment}}</p>
+            <button mat-raised-button color="accent" (click)="payOrder()">Order</button>
         </div>
     </div>
-</div>
-
-<p *ngIf="userData.length===0">No cart is Available</p>
+    <!-- <button (click)="payOrder(i)">Pay order</button> -->

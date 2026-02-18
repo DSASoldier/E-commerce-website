@@ -19,11 +19,13 @@ import { AdminOrdersUpdateComponent } from './component/admin-orders-update/admi
 import { adminGuard } from './admin.guard';
 import { PageCannotAccessComponent } from './component/page-cannot-access/page-cannot-access.component';
 import { adminLoginGuardGuard } from './admin-login-guard.guard';
+import { dashboardGuard } from './dashboard.guard';
+import { ConfirmOrderComponent } from './component/confirm-order/confirm-order.component';
 
 const routes: Routes = [
   {path:'',component:LoginComponent,canActivate:[logInRestrictGuard]},
   {path:'sign-up',component:SignUpComponent,canActivate:[logInRestrictGuard]},
-  {path:'product-page',component:ProductPageComponent},
+  {path:'product-page',component:ProductPageComponent,canActivate:[dashboardGuard]},
   {path:'productDetailPage',component:ProductDetailPageComponent},
   {path:'cart-page',component:CartPageComponent},
   {path:'user-history',component:UserHistoryComponent},
@@ -34,9 +36,10 @@ const routes: Routes = [
     {path:'admin-update',component:AdminUpdateComponent},
     {path:'admin-orders',component:AdminOrdersComponent},
     {path:'admin-orders-update',component:AdminOrdersUpdateComponent}
-  ],canActivate:[adminGuard]},
+  ],canActivate:[dashboardGuard]},
   {path:'page-not-found',component:PageCannotAccessComponent},
-  {path:"**",component:PageCannotAccessComponent}
+  {path:"confirm-order",component:ConfirmOrderComponent},
+  {path:"**",component:PageCannotAccessComponent},
 ];
 
 @NgModule({

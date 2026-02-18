@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { elementAt } from 'rxjs';
 
 @Injectable({
@@ -7,13 +8,13 @@ import { elementAt } from 'rxjs';
 
 export class SourceDataService {
 
-  constructor() { }
+  constructor(private route: Router) { }
 
   getUserdata(){
     
     const user = JSON.parse(localStorage.getItem('logUser') || '{}');
 
-    const data = JSON.parse(localStorage.getItem(user.password) || '[]');
+    const data = JSON.parse(localStorage.getItem(user.email) || '[]');
 
     return data;
   }
@@ -24,7 +25,7 @@ export class SourceDataService {
 
     console.log(user,data);
 
-    const userData = JSON.parse(localStorage.getItem(user.password) || '[]');
+    const userData = JSON.parse(localStorage.getItem(user.email) || '[]');
 
     let flag=false;
     userData.forEach((element:any)=>{
@@ -41,7 +42,7 @@ export class SourceDataService {
 
     console.log("user data",userData);
 
-    localStorage.setItem(user.password,JSON.stringify(userData));
+    localStorage.setItem(user.email,JSON.stringify(userData));
   }
 
   removeUserData(data: any){
@@ -50,7 +51,7 @@ export class SourceDataService {
 
     console.log(user,data);
 
-    let userData = JSON.parse(localStorage.getItem(user.password) || '[]');
+    let userData = JSON.parse(localStorage.getItem(user.email) || '[]');
 
     
     let flag=false;
@@ -73,33 +74,29 @@ export class SourceDataService {
 
     console.log("user data",userData);
 
-    localStorage.setItem(user.password,JSON.stringify(userData));
+    localStorage.setItem(user.email,JSON.stringify(userData));
 
   }
 
-  orderHistory(data: any){
+  orderHistory(totalPayment: number){
 
     const user = JSON.parse(localStorage.getItem('logUser') || '{}');
 
-    const userHistorydata = JSON.parse(localStorage.getItem(`${user.password+ 'history'}`) || '[]');
+    this.route.navigate(['/confirm-order'],
+      {
+        queryParams:{
+          email:user.email,
+          payment:totalPayment
+        }
+      }
+    )
 
-    const historyData = JSON.parse(localStorage.getItem("historyData") || '[]');
-
-    for(let i=0;i<userHistorydata.length;i++){
-      if(userHistorydata[i].title===data.title) return ;
-    }
-
-    userHistorydata.push(data);
-
-    console.log(userHistorydata,historyData);
-    
-    data.email = user.email
-    historyData.push(data);
-
-    localStorage.setItem(`${user.password + 'history'}`,JSON.stringify(userHistorydata));
+  //   localStorage.setItem(`${user.password + 'history'}`,JSON.stringify(userHistorydata));
 
 
-    localStorage.setItem("historyData",JSON.stringify(historyData));
+  //   localStorage.setItem("historyData",JSON.stringify(historyData));
     
   }
+
+
 }

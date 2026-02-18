@@ -16,12 +16,12 @@
 }
 
 .category{
-    margin-top: 20px;
+    /* margin-top: 20px; */
     margin-bottom: 10px;
 }
 
 .price-filter{
-    margin-top: 20px;
+    /* margin-top: 20px; */
     margin-bottom: 10px;
 }
 
@@ -31,7 +31,7 @@
 }
 .cart:hover{
     cursor: pointer;
-    border-style: groove;
+    /* border-style: groove; */
 }
 
 .cart{
@@ -42,7 +42,7 @@
 .nav-right-bar{
     display: flex;
     justify-content: space-between;
-    width: 30%;
+    width: 40%;
 }
 
 .history{

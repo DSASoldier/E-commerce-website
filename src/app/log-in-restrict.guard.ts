@@ -8,10 +8,14 @@ export const logInRestrictGuard: CanActivateFn = (route, state) => {
 
   console.log(user);
 
-  if((user.email)){
-      route2.navigate(['/page-not-found']);
+  if((user?.email?.trim()==='sudeep@gmail.com')){
+      route2.navigate(['/admin-dashboard']);
+  }
+  else if(user?.email){
+    route2?.navigate(['/product-page']);
   }
 
+  console.log(user);
 
-  return !(user.email);
+  return !(user?.email);
 };

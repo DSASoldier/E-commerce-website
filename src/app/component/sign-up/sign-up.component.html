@@ -4,9 +4,8 @@
         <p>Enter Your Name</p>
         <input type="text" formControlName="name" >
         <div *ngIf="userForm.get('name')?.invalid && userForm.get('name')?.touched" style="color: red;">
-            Please Enter Valid Email Address
+            Please Enter name atleast of 3 characters
         </div>
-
         <p>Enter Your Email</p>
         <input type="text" formControlName="email" >
         <div *ngIf="userForm.get('email')?.invalid && userForm.get('email')?.touched" style="color: red;">

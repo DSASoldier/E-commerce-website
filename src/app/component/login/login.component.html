@@ -1,28 +1,42 @@
 <div class="login-container">
     <form [formGroup]="userForm" (ngSubmit)="onSubmit()" style="scale: calc(150%);">
+    <mat-card>
+        <mat-card-content>
+            <!-- <p>Enter Your Email</p>
+            <input type="text" formControlName="email" > -->
+            <mat-form-field>
+            <mat-label>Enter Your Email</mat-label>
+            <input matInput formControlName="email" >
+            </mat-form-field>
+            <p *ngIf="userForm.get('email')?.invalid && userForm.get('email')?.touched" style="color: red;">
+                Please Enter Valid Email Address
+            </p>
+            <!-- <p>Enter Your Password</p>
+            <input type="password" formControlName="password"> -->
+            <br>
+            <mat-form-field>
+                <mat-label>Enter your password</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+            </mat-form-field>
+            <div *ngIf="userForm.get('password')?.invalid && userForm.get('password')?.touched" style="color: red;">
+                Enter Password atleast of five length
+            </div>
     
-        <p>Enter Your Email</p>
-        <input type="text" formControlName="email" >
-        <div *ngIf="userForm.get('email')?.invalid && userForm.get('email')?.touched" style="color: red;">
-            Please Enter Valid Email Address
-        </div>
-
-        <p>Enter Your Password</p>
-        <input type="password" formControlName="password">
-        <div *ngIf="userForm.get('password')?.invalid && userForm.get('password')?.touched" style="color: red;">
-            Enter Password atleast of five length
-        </div>
-
-        <br>
-        <br>
-    
-        <button>Sign In</button>
-        <div style="color: red;" *ngIf="inValidCredential">Invalid credentials</div>
-        <div style="margin-top: 10px;">
-            Wanna sign up first <a routerLink="/sign-up">Sign Up</a> ?
-        </div>
-        <div style="margin-top: 10px;">
+            <br>
+            <br>
+        
+            <button mat-flat-button color="primary">Sign In</button>
+            <div style="color: red;" *ngIf="inValidCredential">Invalid credentials</div>
+            <div style="margin-top: 10px;">
+                Wanna sign up first <a routerLink="/sign-up">Sign Up</a> ?
+            </div>
+        </mat-card-content>
+    </mat-card>
+        <!-- <div style="margin-top: 10px;">
         <a routerLink="/admin-login">Admin Login</a> ?
-        </div>
+        </div> -->
     </form>
 </div>

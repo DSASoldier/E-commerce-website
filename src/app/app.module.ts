@@ -20,7 +20,14 @@ import { AdminOrdersUpdateComponent } from './component/admin-orders-update/admi
 import { AdminOrdersComponent } from './component/admin-orders/admin-orders.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PageCannotAccessComponent } from './component/page-cannot-access/page-cannot-access.component';
-
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { MatButtonModule } from '@angular/material/button';
+import { ConfirmOrderComponent } from './component/confirm-order/confirm-order.component';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatCardModule} from '@angular/material/card';
+import {MatSelectModule} from '@angular/material/select';
+import {MatIconModule} from '@angular/material/icon';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,6 +45,7 @@ import { PageCannotAccessComponent } from './component/page-cannot-access/page-c
     AdminOrdersUpdateComponent,
     AdminOrdersComponent,
     PageCannotAccessComponent,
+    ConfirmOrderComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,7 +54,14 @@ import { PageCannotAccessComponent } from './component/page-cannot-access/page-c
     RouterOutlet,
     RouterLink,
     FormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatPaginatorModule,
+    MatButtonModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatCardModule,
+    MatSelectModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

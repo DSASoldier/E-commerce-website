@@ -2,8 +2,8 @@
 
     <div style="display: flex;justify-content: center;align-items: center; scale: calc(150%); color: white;">SudeepEcom</div>
     <div class="nav-right-bar">
-        <div style="color: white; font-size: large; display:flex; justify-content: center;align-items: center;" class="history" (click)="goToHistoryPage()">History</div>
-        <div style=" margin: 20px;scale: calc(200%);" (click)="clickOnCart()" class="cart">
+        <div style="color: white; font-size: large; display:flex; justify-content: center;align-items: center;" class="history" (click)="goToHistoryPage()">Orders</div>
+        <div style=" margin: 20px;scale: calc(200%); display: flex; gap: 5px;" (click)="clickOnCart()" class="cart">
             <div style="color: white;">Cart</div>
             <div style="display:flex; justify-content: center; color: white;">{{totalCart}}</div>
         </div>
@@ -16,7 +16,7 @@
         (change)="onChangeValue()"
         >
         <div>
-            <p style="margin: 0;">Select an category</p>
+            <p  style="margin:0; margin-top: 10px;">Select an category</p>
             <select class="category" [(ngModel)]="category" >'
                 <option value="" disabled selected>Select an category...</option>
                 <option>Shirt</option>
@@ -27,7 +27,7 @@
         </div>
 
         <div>
-            <p style="margin: 0;">Select a price</p>
+            <p style="margin:0; margin-top: 10px;">Select a price</p>
             <select class="price-filter" [(ngModel)]="priceFilter">'
                 <option value="" disabled selected>Select an price...</option>
                 <option>10-20</option>
@@ -38,4 +38,10 @@
         </div>
     </div>
     <app-card (emitCardTotal) = "updateCardNumber($event)" [cardTotal] = "totalCart" [search] = 'search' [category] = "category" [priceFilter]="priceFilter"/>
+    
+        <!-- <mat-paginator [length]="100"
+                  [pageSize]="10"
+                  [pageSizeOptions]="[5, 10, 25, 100]"
+                  aria-label="Select page">
+        </mat-paginator> -->
 </div>

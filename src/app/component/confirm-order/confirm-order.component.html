@@ -1,0 +1,46 @@
+<h1 class="header">Address</h1>
+<form [formGroup]="userForm" class="example-form">
+
+    <div>
+        <div class="container-1">
+            <mat-form-field class="example-full-width">
+              <mat-label>Country</mat-label>
+              <input matInput placeholder="Ex. india" value="India" formControlName="country">
+            </mat-form-field>
+            
+            <mat-form-field class="example-full-width">
+              <mat-label>State</mat-label>
+              <input matInput placeholder="Ex. Madhya Pradesh" value="Delhi" formControlName="state">
+            </mat-form-field>
+        </div>
+    
+        <div class="container-1">
+            <mat-form-field class="example-full-width">
+              <mat-label>City</mat-label>
+              <input matInput placeholder="Ex. Indore" value="Indore" formControlName="city">
+            </mat-form-field>
+          
+            <mat-form-field class="example-full-width">
+              <mat-label>Pincode</mat-label>
+              <input matInput placeholder="Ex. 12345" value="453441" formControlName="pincode">
+            </mat-form-field>
+        </div>
+    
+        <div class="address1">
+            <mat-form-field class="example-full-width">
+              <mat-label>Address 1</mat-label>
+              <input matInput placeholder="Ex. rajwada" value="mhow" formControlName="address1">
+            </mat-form-field> 
+        </div>
+    
+        <div class="address2">
+            <mat-form-field class="example-full-width">
+              <mat-label>Address 2</mat-label>
+              <input matInput placeholder="Ex. rajwada" value="mhow" formControlName="address2">
+            </mat-form-field>
+        </div>
+    </div>
+</form>
+<div class="footer" (click)="onSubmit()" >
+    <p>Confirm Order</p>
+</div>

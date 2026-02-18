@@ -75,10 +75,10 @@ export class ProductPageComponent implements canLogInUserGoBack {
   goToHistoryPage(){
     const user = JSON.parse(localStorage.getItem('logUser') || '{}');
 
-    const historyData = JSON.parse(localStorage.getItem(`${user.password + 'history'}`) || '[]');
+    const historyData = JSON.parse(localStorage.getItem(`${user.email + 'history'}`) || '[]');
 
     console.log("go to history page",historyData);
-    
+
     this.route.navigate(['/user-history'],{
       queryParams:{data:JSON.stringify(historyData)}
     });

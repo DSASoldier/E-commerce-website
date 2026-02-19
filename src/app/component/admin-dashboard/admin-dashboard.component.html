@@ -2,10 +2,28 @@
     <a routerLink="/admin-dashboard/admin-add">Add</a>
     <a  routerLink="/admin-dashboard/admin-update">Edit</a>
     <a  routerLink="/admin-dashboard/admin-delete">Delete</a>
-    <a  routerLink="/admin-dashboard/admin-orders">orders</a>
     <a  routerLink="/admin-dashboard/admin-orders-update">Update orders</a>
     <a (click)="handleLogout()" routerLink="/">Logout</a>
 </nav>
 <div class="container">
     <router-outlet />
 </div>
+
+<!-- <mat-tab-group>
+  <mat-tab label="First"> 
+    <app-admin-add/>    
+</mat-tab>
+    <mat-tab label="Second"> 
+        <app-admin-delete/>
+    </mat-tab>
+  <mat-tab label="Third">
+        <app-admin-update/>
+  </mat-tab>
+  <mat-tab label="Fourth">
+        <app-admin-orders/>
+  </mat-tab>
+  <mat-tab label="fifth">
+        <app-admin-orders-update/>
+  </mat-tab>
+  
+</mat-tab-group> -->

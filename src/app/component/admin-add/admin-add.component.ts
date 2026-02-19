@@ -66,16 +66,22 @@ export class AdminAddComponent {
   feildEmpty = false;
 
   addTheProduct(){
+
+    console.log(this.title,this.desc,this.price)
     const data = JSON.parse(localStorage.getItem("admin") || JSON.stringify(this.dummyData));
 
-    if(this.title == "" || this.desc==="" || this.price === ""){
+    if(!this.title || !this.desc || !this.price ){
       this.feildEmpty = true;
+
+      setTimeout(()=>{
+        this.feildEmpty = false;
+      },2000)
       return ;
     }
     data.push({
       img:'../../../favicon.ico',
       title:this.title,
-      money:this.price,
+      money:Number(this.price),
       desc:this.desc
     })
 

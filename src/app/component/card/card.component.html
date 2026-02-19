@@ -1,6 +1,6 @@
 <div class="card-container" >
 
-    <div class="card" *ngFor="let data of userData; let i = index" >
+    <!-- <div class="card" *ngFor="let data of userData; let i = index" >
         <div class="image-container" (click)="goToDetailPage(i)">
             <img src="../../../favicon.ico">
         </div>
@@ -15,6 +15,31 @@
                 <button (click)="addToCard(i)">add to card</button>
             </div>
         </div>
+    </div> -->
+
+  <div *ngFor="let data of userData; let i = index" >
+    <mat-card class="example-card">
+        <mat-card-header (click)="goToDetailPage(i)">
+            <mat-card-title-group>
+            <mat-card-title>{{data.title}}</mat-card-title>
+            <mat-card-subtitle>${{data.money}}</mat-card-subtitle>
+            <img mat-card-sm-image src="../../../favicon.ico" >
+            </mat-card-title-group>
+            </mat-card-header>
+            <mat-card-content>
+            {{data.desc}}
+            <br>
+            <br>
+            <!-- <button (click)="addToCard(i)">add to card</button> -->
+                 <button mat-stroked-button color="accent" (click)="addToCard(i)">Add to Card</button>
+        </mat-card-content>
+    </mat-card>
     </div>
-    
 </div>
+
+<mat-paginator [length]="100"
+    [pageSize]="10"
+    [pageSizeOptions]="[5, 10, 25, 100]"
+    aria-label="Select page"
+    >
+</mat-paginator>

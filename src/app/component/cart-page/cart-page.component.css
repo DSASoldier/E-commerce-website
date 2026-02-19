@@ -8,6 +8,13 @@
     padding-top: 50px;
 
 }
+
+.container{
+   /* justify-content: space-between;  */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /*
+   
+}
 .carts{
     display: flex;
     justify-content: space-between;
@@ -41,4 +48,21 @@
     display: flex;
     justify-content: space-between;
     width: 90%;
+}
+.example-card {
+    display: flex;
+    justify-content: space-between;
+    max-width: 400px;
+    margin-bottom: 8px;
+}
+.example-card-2{
+    display: flex;
+    justify-content: space-between;
+    min-width: 400px;
+    margin-bottom: 8px;
+}
+.image-container{
+    display: flex; 
+    justify-content: space-between;
+    margin: 20px;
 }

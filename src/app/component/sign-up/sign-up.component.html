@@ -1,39 +1,85 @@
 <div class="sign-up-container">
-    <form [formGroup]="userForm" (ngSubmit)="onSubmit()" style="scale: calc(150%);">
+    <mat-card>
+  <mat-card-content>
+        <form [formGroup]="userForm" (ngSubmit)="onSubmit()" style="scale: calc(100%);">  
+            <!-- <p>Enter Your Name</p>
+            <input type="text" formControlName="name" >
+        -->
         
-        <p>Enter Your Name</p>
-        <input type="text" formControlName="name" >
+        <mat-form-field class="example-form-field" style="width: 100%;">
+            <mat-label>Enter Your Name</mat-label>
+            <input matInput type="text" [(ngModel)]="value" formControlName="name">
+            <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+                <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
         <div *ngIf="userForm.get('name')?.invalid && userForm.get('name')?.touched" style="color: red;">
             Please Enter name atleast of 3 characters
         </div>
-        <p>Enter Your Email</p>
-        <input type="text" formControlName="email" >
-        <div *ngIf="userForm.get('email')?.invalid && userForm.get('email')?.touched" style="color: red;">
-            Please Enter Valid Email Address
-        </div>
-        <div *ngIf="!isEmailUnique" style="color: red;">
-            This Email is already taken
-        </div>
-        <p>Enter Your Password</p>
-        <input type="password" formControlName="password">
-        <div *ngIf="userForm.get('password')?.invalid && userForm.get('password')?.touched" style="color: red;">
-            Enter Password atleast of five length
-        </div>
-        <div *ngIf="!isPasswordUnique" style="color: red;">
-            This password is used
-        </div>
-         <p>Confirm Your Password</p>
-        <input type="password" formControlName="confirmPassword">
-        <div *ngIf="userForm.get('confirmPassword')?.invalid && userForm.get('confirmPassword')?.touched" style="color: red;">
-            Enter Password atleast of five length
-        </div>
+        
+        <br>
 
-        <br>
-        <br>
-        <p *ngIf="isPasswordMaching" style="color: red;">password is not matched</p>
-        <button>Sign Up</button>
-        <div style="margin-top: 10px;">
-            Go to Sign in <a routerLink="/">Sign In</a> 
-        </div>
-    </form>
+            <!-- <p>Enter Your Email</p>
+            <input type="text" formControlName="email" > -->
+        
+            <mat-form-field class="example-full-width" style="width: 100%;">
+                <mat-label>Email</mat-label>
+                <input type="email" matInput formControlName="email"
+                    placeholder="Ex. pat@example.com" (keydown.space)="$event.preventDefault()">
+            </mat-form-field>
+            <div *ngIf="userForm.get('email')?.invalid && userForm.get('email')?.touched" style="color: red;">
+                Please Enter Valid Email Address
+            </div>
+            <div *ngIf="!isEmailUnique" style="color: red;">
+                This Email is already taken
+            </div>
+        
+            <br>
+            <!-- <p>Enter Your Password</p>
+            <input type="password" formControlName="password"> -->
+
+            <mat-form-field style="width: 100%;">
+                <mat-label>Enter your password</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" (keydown.space)="$event.preventDefault()" >
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+            </mat-form-field>
+
+            <div *ngIf="userForm.get('password')?.invalid && userForm.get('password')?.touched" style="color: red;">
+                Enter Password atleast of five length
+            </div>
+            <div *ngIf="!isPasswordUnique" style="color: red;">
+                This password is used
+            </div>
+            <!-- <p>Confirm Your Password</p>
+            <input type="password" formControlName="confirmPassword"> -->
+
+            <br>
+
+            <mat-form-field style="width: 100%;">
+                <mat-label>Confirm your password</mat-label>
+                <input matInput [type]="hide2 ? 'password' : 'text'" formControlName="confirmPassword" (keydown.space)="$event.preventDefault()" >
+                <button mat-icon-button matSuffix (click)="hide2 = !hide2" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon>{{hide2 ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+            </mat-form-field>
+
+            <div *ngIf="userForm.get('confirmPassword')?.invalid && userForm.get('confirmPassword')?.touched" style="color: red;">
+                Enter Password atleast of five length
+            </div>
+        
+            <br>
+
+            <p *ngIf="isPasswordMaching" style="color: red;">password is not matched</p>
+
+
+            <button mat-flat-button color="primary">Sign Up</button>
+            <div style="margin-top: 10px;">
+                Go to Sign in <a routerLink="/">Sign In</a> 
+            </div>
+
+        </form>
+  </mat-card-content>
+</mat-card>
 </div>

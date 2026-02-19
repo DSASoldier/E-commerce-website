@@ -3,7 +3,7 @@
     justify-content: space-between; 
     padding-left: 30px;
     padding-right: 30px;
-    background-color: rgb(223, 228, 130);
+    /* background-color: #cf467d; */
 }
 
 .search-bar{
@@ -40,9 +40,11 @@
 }
 
 .nav-right-bar{
+    /* display: flex;
+    justify-content: space-between;
+    width: 30%; */
     display: flex;
     justify-content: space-between;
-    width: 40%;
 }
 
 .history{

@@ -6,14 +6,11 @@
 }
 
 .card-container{
-    height: 100vh;
-    margin: 20px;
+    margin: 30px;
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
     gap: 10px; /* Space between items */
-    justify-content: center;
-    align-items: center;
-    margin-left: 100px;
+    
 
 }
 

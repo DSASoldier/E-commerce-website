@@ -28,6 +28,11 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatCardModule} from '@angular/material/card';
 import {MatSelectModule} from '@angular/material/select';
 import {MatIconModule} from '@angular/material/icon';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatTabsModule} from '@angular/material/tabs';
+import { ProductDetailPageComponent } from './component/product-detail-page/product-detail-page.component';
+import {MAT_DIALOG_DATA, MatDialogModule, MatDialogRef} from '@angular/material/dialog';
+import { MyModalComponent } from './component/my-modal/my-modal.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,6 +51,8 @@ import {MatIconModule} from '@angular/material/icon';
     AdminOrdersComponent,
     PageCannotAccessComponent,
     ConfirmOrderComponent,
+    ProductDetailPageComponent,
+    MyModalComponent
   ],
   imports: [
     BrowserModule,
@@ -61,9 +68,18 @@ import {MatIconModule} from '@angular/material/icon';
     MatFormFieldModule,
     MatCardModule,
     MatSelectModule,
-    MatIconModule
+    MatIconModule,
+    MatMenuModule,
+    MatTabsModule,
+    MatDialogModule
   ],
-  providers: [],
+  providers: [
+    {
+       provide: MatDialogRef,
+       useValue: {}
+     },
+     { provide: MAT_DIALOG_DATA, useValue: {} },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

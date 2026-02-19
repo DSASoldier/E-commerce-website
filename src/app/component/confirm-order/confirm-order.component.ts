@@ -41,10 +41,10 @@ export class ConfirmOrderComponent {
     const userHistorydata = JSON.parse(localStorage.getItem(`${user.email+'history'}`) || '[]');
 
     for(let i=0;i<userData.length;i++){
-      userHistorydata.push(userData[i]);
+      userHistorydata.push({...userData[i],status:"delivering"});
+      historyData.push({...userData[i],status:"delivering"});
     }
 
-    historyData.push(data);
 
     console.log(userHistorydata,historyData);
 

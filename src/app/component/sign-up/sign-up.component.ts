@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, FormGroupDirective, NgForm, Validators } from '@angular/forms';
+import { ErrorStateMatcher } from '@angular/material/core';
 import { Router } from '@angular/router';
 import { noWhitespaceValidator } from 'src/app/no-white-space-validator';
 
@@ -8,11 +9,15 @@ import { noWhitespaceValidator } from 'src/app/no-white-space-validator';
   templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.css']
 })
+
 export class SignUpComponent implements OnInit {
 
   isPasswordMaching: boolean=false;
   isEmailUnique = true;
   isPasswordUnique = true;
+  value = ''
+  hide = true;
+  hide2 = true;
 
   constructor(private route : Router){}
 
@@ -57,6 +62,9 @@ export class SignUpComponent implements OnInit {
     this.isPasswordMaching=false;
 
     if(this.userForm.value.password !== this.userForm.value.confirmPassword){
+
+      console.log(this.userForm.value.password,this.userForm.value.confirmPassword);
+      
       this.isPasswordMaching = true;
       return ;
     }

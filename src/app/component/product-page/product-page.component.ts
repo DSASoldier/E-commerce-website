@@ -16,7 +16,7 @@ export class ProductPageComponent implements canLogInUserGoBack {
   search:HTMLInputElement | null = null;
   category:HTMLSelectElement | null = null;
   priceFilter:HTMLSelectElement | null = null;
-
+  value=""
 
   // totalCart=JSON.parse(localStorage.getItem(`${this.user+'count'}`) || '0');
   totalCart=0;

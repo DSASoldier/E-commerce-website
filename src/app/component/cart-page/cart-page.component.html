@@ -1,7 +1,7 @@
 <div class="cart-container">
-        <div *ngFor="let user of userData; let i = index" class="carts">
+        <div *ngFor="let user of userData; let i = index" class="container">
 
-            <p>{{user.title}}</p>
+            <!-- <p>{{user.title}}</p>
             <p>{{user.desc}}</p>
             <p>${{user.money}}</p>
             <p>Total Cost ${{user.money*user.count}}</p>
@@ -12,7 +12,37 @@
                 <img src="{{user.img}}" class="image">
                 <button *ngIf="user.count" (click)="removeFromCard(i)" style="display: block;">-</button>
                 <button *ngIf="!user.count" (click)="removeFromCard(i)" style="display: block;">removeItem</button>
-            </div>
+            </div> -->
+
+            <mat-card class="example-card-2">
+            <mat-card-header>
+                <mat-card-title-group>
+
+                    <div style="gap: 20px; display: flex;">
+                        <div>
+                            <button (click)="addToCard(i)">+</button>
+                            <br>
+                            <br>
+                             <button *ngIf="user.count" (click)="removeFromCard(i)" style="display: block;">-</button>
+                             
+                            <button *ngIf="!user.count" (click)="removeFromCard(i)" style="display: block;">removeItem</button>
+                            <br>
+                            <br>
+                            <p>{{user.title}}</p>
+                            <p>{{user.desc}}</p>
+                            <p>${{user.money}}</p>
+                            <p>Total Cost ${{user.money*user.count}}</p>
+                            <p>Total Item {{user.count}}</p>          
+
+                        </div>
+                        <img mat-card-xl-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" >
+                    </div>
+                </mat-card-title-group>
+            </mat-card-header>
+            <mat-card-content>
+                
+            </mat-card-content>
+            </mat-card>
         </div>
         
         <p *ngIf="userData.length===0">No cart is Available</p>

@@ -68,6 +68,9 @@ export class SourceDataService {
       
       userData = userData.filter((element: any)=>{
         if(element.count!==0) return element;
+        // if(!(element.title === data.title && element.desc===data.desc && element.count==1)){
+        //   return element;
+        // }
       })
 
     }

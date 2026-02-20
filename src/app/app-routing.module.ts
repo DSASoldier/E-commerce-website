@@ -21,6 +21,7 @@ import { PageCannotAccessComponent } from './component/page-cannot-access/page-c
 import { adminLoginGuardGuard } from './admin-login-guard.guard';
 import { dashboardGuard } from './dashboard.guard';
 import { ConfirmOrderComponent } from './component/confirm-order/confirm-order.component';
+import { adminDashboardGuardGuard } from './admin-dashboard-guard.guard';
 
 const routes: Routes = [
   {path:'',component:LoginComponent,canActivate:[logInRestrictGuard]},
@@ -35,8 +36,8 @@ const routes: Routes = [
     {path:'admin-delete',component:AdminDeleteComponent},
     {path:'admin-update',component:AdminUpdateComponent},
     {path:'admin-orders',component:AdminOrdersComponent},
-    {path:'admin-orders-update',component:AdminOrdersUpdateComponent}
-  ],canActivate:[dashboardGuard]},
+    {path:'admin-orders-update',component:AdminOrdersUpdateComponent},
+  ],canActivate:[adminDashboardGuardGuard]},
   {path:'page-not-found',component:PageCannotAccessComponent},
   {path:"confirm-order",component:ConfirmOrderComponent},
   {path:"**",component:PageCannotAccessComponent},

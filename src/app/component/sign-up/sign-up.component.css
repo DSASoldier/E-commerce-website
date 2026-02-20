@@ -1,11 +1,18 @@
 .sign-up-container{
     width: 100wh;
     height: 100vh;
-    background-color: #c2185b;
+    background-color: rgb(83, 191, 206);
     margin: 0px;
     padding: 0px;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: scroll;
+}
+
+
+.custom-field {
+  --mdc-filled-text-field-container-color: rgb(83, 191, 206);
+   /* Your desired background color */
+
 }

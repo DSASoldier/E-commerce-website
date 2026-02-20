@@ -107,8 +107,8 @@ export class AdminUpdateComponent {
 
 
   updateButtonClick(index: number){
-
-    this.dialogRef.close();
+    
+    
   } 
   
   onNoClick(): void {

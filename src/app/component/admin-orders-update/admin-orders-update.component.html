@@ -4,8 +4,8 @@
     <p>{{product.desc}}</p>
     <p>{{product.count}}</p>
     <select #data (change)="statusUpdate(data.value,i)" value="{{product.status}}">
-        <option value="delivering">Delivering</option>
-        <option value="delivered">Delivered</option>
-        <option value="cancel">cancel</option>
+        <option value="confirm" style="color:green">Confirm</option>
+        <option value="delivered" style="color: blue;">Delivered</option>
+        <option value="cancel" style="color: red;">cancel</option>
     </select>
 </div>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { elementAt } from 'rxjs';
 import { canLogInUserGoBack } from 'src/app/canLonInUsergoBack';
 import { SourceDataService } from 'src/app/source-data.service';
 
@@ -13,23 +14,34 @@ export class ProductPageComponent implements canLogInUserGoBack {
 
   user = (localStorage.getItem('logUser') || '{}');
 
-  search:HTMLInputElement | null = null;
-  category:HTMLSelectElement | null = null;
-  priceFilter:HTMLSelectElement | null = null;
+  search: HTMLInputElement | null = null;
+  category: HTMLSelectElement | null = null;
+  priceFilter: HTMLSelectElement | null = null;
   value=""
+  cat: string[] = ['Shirt','Pants','Utensils','Toys'];
+
+  data = JSON.parse(localStorage.getItem('admin') || '[]');
 
   // totalCart=JSON.parse(localStorage.getItem(`${this.user+'count'}`) || '0');
   totalCart=0;
   
-  constructor(private route:Router,private dataSource:SourceDataService){
+  constructor(private route: Router,private dataSource: SourceDataService){
 
     this.totalCart = 0;
     const userData = this.dataSource.getUserdata();
 
     let sum=userData.length;
     
-    
     this.totalCart = sum;
+
+    console.log("--->",this.data);
+
+    this.data.forEach((element: any)=>{
+
+      if(this.cat.includes(element.category)) return ;
+      
+      if(element && element.category) this.cat.push(element.category)
+    })
 
   }
 

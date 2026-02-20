@@ -1,22 +1,25 @@
 <div class="login-container">
     <form [formGroup]="userForm" (ngSubmit)="onSubmit()" style="scale: calc(100%);">
-    <mat-card>
+    <mat-card style="background-color: white;">
         <mat-card-content>
             <!-- <p>Enter Your Email</p>
             <input type="text" formControlName="email" > -->
-            <mat-form-field style="width: 100%;">
+            <mat-form-field appearance="fill" style="width: 100%;" class="custom-field">
+            
             <mat-label>Enter Your Email</mat-label>
-            <input matInput formControlName="email" >
+            <input matInput formControlName="email" #email>
             </mat-form-field>
             <p *ngIf="userForm.get('email')?.invalid && userForm.get('email')?.touched" style="color: red;">
                 Please Enter Valid Email Address
             </p>
+
             <!-- <p>Enter Your Password</p>
             <input type="password" formControlName="password"> -->
+
             <br>
-            <mat-form-field>
+            <mat-form-field appearance="fill" class="custom-field">
                 <mat-label>Enter your password</mat-label>
-                <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+                <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" #password>
                 <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                 <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                 </button>
@@ -28,15 +31,19 @@
             <br>
             <br>
         
-            <button mat-flat-button color="primary">Sign In</button>
-            <div style="color: red;" *ngIf="inValidCredential">Invalid credentials</div>
-            <div style="margin-top: 10px;">
-                Wanna sign up first <a routerLink="/sign-up">Sign Up</a> ?
+            <button mat-flat-button  color="primary" style="background-color: rgb(83, 191, 206);color: white; width: 100%;" [disabled]="userForm.invalid">Sign In</button>
+
+            <div (click)="openSnackBar(email.value,password.value)" style="color: red;" *ngIf="inValidCredential">Invalid credentials</div>
+            <div style="margin-top: 10px; display: flex; justify-content: center;">
+                <a routerLink="/sign-up" style="color: rgb(83, 191, 206); ;">Sign Up</a>
             </div>
         </mat-card-content>
     </mat-card>
         <!-- <div style="margin-top: 10px;">
         <a routerLink="/admin-login">Admin Login</a> ?
         </div> -->
+        <div style="display: flex;justify-content: center;" *ngIf="spiner">
+            <mat-spinner></mat-spinner>
+        </div>
     </form>
 </div>

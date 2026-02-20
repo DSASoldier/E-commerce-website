@@ -11,7 +11,7 @@ import { canLogInUserGoBack } from 'src/app/canLonInUsergoBack';
 export class LoginComponent{
 
   hide = true;
-  
+  spiner = false;
   userForm = new FormGroup({
     email:new FormControl('',[Validators.required,Validators.email]),
     password:new FormControl('',[Validators.required,Validators.minLength(5)])
@@ -21,7 +21,9 @@ export class LoginComponent{
 
   inValidCredential = false;
 
-  
+  openSnackBar(message: string, action: string) {
+    // this._snackBar.open(message, action);
+  }
 
   isSignUp(){
 
@@ -52,9 +54,19 @@ export class LoginComponent{
 
         localStorage.setItem('logUser',JSON.stringify(user));
         if(user.email?.trim()==='sudeep@gmail.com'){
-          this.route.navigate(['/admin-dashboard'])
+          this.spiner = true;
+
+          setTimeout(()=>{
+            this.route.navigate(['/admin-dashboard'])
+            this.spiner = false;
+          },3000)
+
         }else{
-          this.route.navigate(['/product-page'])
+          this.spiner = true;
+          setTimeout(()=>{
+            this.route.navigate(['/product-page'])
+            this.spiner = false
+          },3000)
         }
     }
     else{
@@ -62,5 +74,3 @@ export class LoginComponent{
     }
   }
 }
-
-

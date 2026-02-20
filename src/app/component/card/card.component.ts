@@ -1,8 +1,10 @@
-import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChange, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChange, SimpleChanges, ViewChild } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { elementAt } from 'rxjs';
 import { SourceDataService } from 'src/app/source-data.service';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-card',
@@ -62,22 +64,36 @@ export class CardComponent implements OnChanges {
 
 ] 
 
-  @Input() cardTotal!: number; 
-  @Output() emitCardTotal = new EventEmitter<number>
-  @Input() search!: any;
-  @Input() category!: any;
-  @Input() priceFilter!: any;
+
+@Input() cardTotal!: number; 
+@Output() emitCardTotal = new EventEmitter<number>
+@Input() search!: any;
+@Input() category!: any;
+@Input() priceFilter!: any;
 
 
-  user = JSON.parse(localStorage.getItem('user') || '{}');
+user = JSON.parse(localStorage.getItem('user') || '{}');
 
-  userData = JSON.parse(localStorage.getItem("admin") || JSON.stringify(this.dummyData));
+userData = JSON.parse(localStorage.getItem("admin") || JSON.stringify(this.dummyData));
+
+dataSource = new MatTableDataSource<any>(this.userData);
+
+@ViewChild(MatPaginator) paginator!: MatPaginator;
+
 
   constructor(private sourceData:SourceDataService,private route: Router) {
     console.log("frejngerkjng",this.userData);
     this.dummyData = this.userData;
   }
- 
+  
+
+  ngAfterViewInit() {
+    // Link the paginator to the data source after the view is initialized
+    this.dataSource.paginator = this.paginator;
+
+    console.log(this.dataSource.paginator)
+  }
+
   ngOnChanges(changes:SimpleChanges): void {
 
     console.log("changes on",changes)

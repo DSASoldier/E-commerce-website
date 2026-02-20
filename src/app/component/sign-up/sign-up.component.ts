@@ -18,6 +18,7 @@ export class SignUpComponent implements OnInit {
   value = ''
   hide = true;
   hide2 = true;
+  spiner = false;
 
   constructor(private route : Router){}
 
@@ -73,6 +74,12 @@ export class SignUpComponent implements OnInit {
 
     this.handlingLocalStorage();
 
-    this.route.navigate(['/']);
+    this.spiner = true;
+
+    setTimeout(()=>{
+
+      this.route.navigate(['/']);
+      this.spiner = false
+    },3000)
   }
 }

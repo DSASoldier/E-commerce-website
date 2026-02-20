@@ -54,3 +54,9 @@
 .history:hover{
     cursor: pointer;
 }
+
+.custom-field {
+  --mdc-filled-text-field-container-color: rgb(83, 191, 206);
+   /* Your desired background color */
+
+}

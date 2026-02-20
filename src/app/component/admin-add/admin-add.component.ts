@@ -62,6 +62,7 @@ export class AdminAddComponent {
   title=""
   desc=""
   price=""
+  category=""
   addClick = false;
   feildEmpty = false;
 
@@ -70,7 +71,7 @@ export class AdminAddComponent {
     console.log(this.title,this.desc,this.price)
     const data = JSON.parse(localStorage.getItem("admin") || JSON.stringify(this.dummyData));
 
-    if(!this.title || !this.desc || !this.price ){
+    if(!this.title || !this.desc || !this.price || !this.category){
       this.feildEmpty = true;
 
       setTimeout(()=>{
@@ -82,7 +83,8 @@ export class AdminAddComponent {
       img:'../../../favicon.ico',
       title:this.title,
       money:Number(this.price),
-      desc:this.desc
+      desc:this.desc,
+      category:this.category
     })
 
     this.addClick = true;
@@ -91,7 +93,10 @@ export class AdminAddComponent {
       this.addClick = false;
     }, 5000);
     console.log(data);
-    
+    this.title=''
+    this.price=''
+    this.desc=''
+    this.category=''
     localStorage.setItem("admin",JSON.stringify(data));
   }
 

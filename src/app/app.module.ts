@@ -33,6 +33,8 @@ import {MatTabsModule} from '@angular/material/tabs';
 import { ProductDetailPageComponent } from './component/product-detail-page/product-detail-page.component';
 import {MAT_DIALOG_DATA, MatDialogModule, MatDialogRef} from '@angular/material/dialog';
 import { MyModalComponent } from './component/my-modal/my-modal.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -71,7 +73,9 @@ import { MyModalComponent } from './component/my-modal/my-modal.component';
     MatIconModule,
     MatMenuModule,
     MatTabsModule,
-    MatDialogModule
+    MatDialogModule,
+    MatProgressSpinnerModule,
+    
   ],
   providers: [
     {

@@ -21,6 +21,7 @@
                             <p>Total Cost ${{user.money*user.count}}</p>
                             <p>Total Item {{user.count}}</p>          
                             <p>Status {{user.status}}</p>
+                            <button *ngIf="user.status!=='delivered' && user.status!=='cancel'" style="color: red;" (click)="cancelOrder(i)">Cancel</button>
                         </div>
                         <img mat-card-xl-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" >
                     </div>

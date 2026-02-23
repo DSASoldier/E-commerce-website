@@ -42,7 +42,7 @@ export class ConfirmOrderComponent {
 
     for(let i=0;i<userData.length;i++){
       userHistorydata.push({...userData[i],status:"confirm"});
-      historyData.push({...userData[i],status:"confirm"});
+      historyData.push({...userData[i],status:"confirm",email:user.email});
     }
 
     console.log(userHistorydata,historyData);

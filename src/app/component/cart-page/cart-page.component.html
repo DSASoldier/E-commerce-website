@@ -45,8 +45,17 @@
             </mat-card>
         </div>
         
-        <p *ngIf="userData.length===0">No cart is Available</p>
-        <div class="footer">
+        <!-- <p *ngIf="userData.length===0">No cart is Available</p> -->
+
+            <mat-card *ngIf="userData.length===0">
+                <mat-card-header>
+                    <mat-card-title>No Order Available</mat-card-title>
+                </mat-card-header>
+                <mat-card-actions align="end">
+                    <button mat-button routerLink="../">Return to dashboard</button>
+                </mat-card-actions>
+            </mat-card>
+        <div class="footer" *ngIf="userData.length!==0">
             <p>Total ${{totalPayment}}</p>
             <button mat-raised-button color="accent" (click)="payOrder()">Order</button>
         </div>

@@ -1,6 +1,7 @@
 <div *ngFor="let product of products let i = index" class="data">
+    <p>{{product.email}}</p>
     <p>{{product.title}}</p>
-    <p>{{product.money}}</p>
+    <p>${{product.money}}</p>
     <p>{{product.desc}}</p>
     <p>{{product.count}}</p>
     <select #data (change)="statusUpdate(data.value,i)" value="{{product.status}}">
@@ -8,4 +9,5 @@
         <option value="delivered" style="color: blue;">Delivered</option>
         <option value="cancel" style="color: red;">cancel</option>
     </select>
+
 </div>

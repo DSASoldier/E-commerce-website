@@ -10,6 +10,8 @@ import { ActivatedRoute } from '@angular/router';
 export class UserHistoryComponent {
 
     userData:any = []
+
+
     constructor(private dataInfo: ActivatedRoute){
       // dataInfo.queryParams.subscribe((data:any)=>{
       //   this.userData = JSON.parse(data.data);
@@ -20,6 +22,21 @@ export class UserHistoryComponent {
       const orderHistory = JSON.parse(localStorage.getItem(`${user.email+'history'}`) || '[]');
 
       this.userData  = orderHistory;
+      
+    }
+
+    getStatusColor(key: string): string{
+      
+      if(key==='delivered'){
+        return 'green'
+      }
+      if(key==='confirm'){
+        return 'yellow'
+      }
+      if(key==='cancel'){
+        return 'red'
+      }
+      return ''
     }
 
     cancelOrder(index: number){
@@ -63,7 +80,6 @@ export class UserHistoryComponent {
         this.userData.splice(index,1);
 
         localStorage.setItem(`${user.email+'history'}`,JSON.stringify(newUserData));
-        localStorage.setItem(`historyData`,JSON.stringify(newData));
-        
+        localStorage.setItem(`historyData`,JSON.stringify(newData)); 
     }
 }

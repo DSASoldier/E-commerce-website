@@ -9,35 +9,13 @@ import {MatButtonModule} from '@angular/material/button';
 import {FormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
-
+import { DialogComponent } from '../dialog/dialog.component';
+import { DialogOverviewExample } from './dialog';
+import { SignUpComponent } from '../sign-up/sign-up.component';
 
 export interface DialogData {
   animal: string;
   name: string;
-}
-
-
-@Component({
-  selector: 'dialog',
-  templateUrl: './dialog.html',
-})
-
-export class DialogOverviewExample {
-  animal: string='';
-  name: string='';
-
-  constructor(public dialog: MatDialog) {}
-
-  openDialog(): void {
-    const dialogRef = this.dialog.open(AdminUpdateComponent, {
-      data: {name: this.name, animal: this.animal},
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      this.animal = result;
-    });
-  }
 }
 
 @Component({
@@ -48,7 +26,7 @@ export class DialogOverviewExample {
 
 export class AdminUpdateComponent {
 
-  dummyData = [{
+    dummyData = [{
     img:'../../../favicon.ico',
     title:'Titile1',
     money:20,
@@ -99,20 +77,31 @@ export class AdminUpdateComponent {
 
 ] 
 
-  constructor(
-    public dialogRef: MatDialogRef<AdminUpdateComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData,
-  ){}
+  constructor(public dialog: MatDialog) {}
+
   products = JSON.parse(localStorage.getItem("admin") || JSON.stringify(this.dummyData));
 
+  openDialog(index: number): void {
+    const dialogRef = this.dialog.open(DialogComponent, {
+      data: index,
+    });
 
-  updateButtonClick(index: number){
-    
-    
-  } 
-  
-  onNoClick(): void {
-   this.dialogRef.close();
- }
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+     
+      const index = result.index;
 
+      const data = {
+        img:'../../../favicon.ico',
+        title:result.title,
+        money:result.money,
+        desc:result.desc,
+      }
+
+      this.products[index]= data;
+      
+    });
+  }
+
+   
 }

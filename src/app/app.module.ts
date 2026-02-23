@@ -34,6 +34,8 @@ import { ProductDetailPageComponent } from './component/product-detail-page/prod
 import {MAT_DIALOG_DATA, MatDialogModule, MatDialogRef} from '@angular/material/dialog';
 import { MyModalComponent } from './component/my-modal/my-modal.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { DialogComponent } from './component/dialog/dialog.component';
+import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -54,7 +56,9 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     PageCannotAccessComponent,
     ConfirmOrderComponent,
     ProductDetailPageComponent,
-    MyModalComponent
+    MyModalComponent,
+    DialogComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -75,7 +79,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     MatTabsModule,
     MatDialogModule,
     MatProgressSpinnerModule,
-    
+    // MatSnackBar,
+    // MatSnackBarModule
   ],
   providers: [
     {

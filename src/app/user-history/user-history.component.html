@@ -9,7 +9,6 @@
             <p>cost of single item ${{user.money}}</p>
             <p>Total Cost ${{user.money*user.count}}</p> -->
 
-
             <mat-card class="example-card-2">
             <mat-card-header>
                 <mat-card-title-group>
@@ -20,8 +19,11 @@
                             <p>${{user.money}}</p>
                             <p>Total Cost ${{user.money*user.count}}</p>
                             <p>Total Item {{user.count}}</p>          
-                            <p>Status {{user.status}}</p>
-                            <button *ngIf="user.status!=='delivered' && user.status!=='cancel'" style="color: red;" (click)="cancelOrder(i)">Cancel</button>
+                            <p [ngStyle]="{'color':getStatusColor(user.status)}">Status {{user.status}}</p>
+                            <button *ngIf="user.status!=='delivered' && user.status!=='cancel'" style="color: red;" (click)="cancelOrder(i)"
+                            mat-raised-button
+                            color="accent"
+                            >Cancel</button>
                         </div>
                         <img mat-card-xl-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" >
                     </div>
@@ -34,6 +36,15 @@
         </div>
                
 
-        <p *ngIf="userData.length===0">No history available</p>
+        <!-- <p *ngIf="userData.length===0">No history available</p> -->
+
+        <mat-card *ngIf="userData.length===0">
+                <mat-card-header>
+                    <mat-card-title>No Order Available</mat-card-title>
+                </mat-card-header>
+                <mat-card-actions align="end">
+                    <button mat-button routerLink="../">Return to dashboard</button>
+                </mat-card-actions>
+        </mat-card>
 </div>
 

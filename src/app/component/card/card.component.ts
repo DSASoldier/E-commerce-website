@@ -11,6 +11,7 @@ import { MatTableDataSource } from '@angular/material/table';
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.css']
 })
+
 export class CardComponent implements OnChanges {
   
   dummyData = [{
@@ -91,7 +92,13 @@ dataSource = new MatTableDataSource<any>(this.userData);
     // Link the paginator to the data source after the view is initialized
     this.dataSource.paginator = this.paginator;
 
-    console.log(this.dataSource.paginator)
+    console.log(this.dataSource);
+
+  }
+
+  onPageChange(event:any){
+    console.log(this.dataSource);
+    console.log(event);
   }
 
   ngOnChanges(changes:SimpleChanges): void {

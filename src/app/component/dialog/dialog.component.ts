@@ -1,14 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
+import { DialogData, DialogOverviewExample } from '../admin-update/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
-  selector: 'app-admin-add',
-  templateUrl: './admin-add.component.html',
-  styleUrls: ['./admin-add.component.css']
+  selector: 'app-dialog',
+  templateUrl: './dialog.component.html',
+  styleUrls: ['./dialog.component.css']
 })
+export class DialogComponent {
 
-export class AdminAddComponent {
-
-  dummyData = [{
+    dummyData = [{
     img:'../../../favicon.ico',
     title:'Titile1',
     money:20,
@@ -59,10 +60,13 @@ export class AdminAddComponent {
 
 ] 
 
+  constructor(public dialogRef: MatDialogRef<DialogComponent>,
+  @Inject(MAT_DIALOG_DATA) public data: DialogData){}
+
   title=""
   desc=""
   price=""
-  category=""
+
   addClick = false;
   feildEmpty = false;
 
@@ -71,7 +75,7 @@ export class AdminAddComponent {
     console.log(this.title,this.desc,this.price)
     const data = JSON.parse(localStorage.getItem("admin") || JSON.stringify(this.dummyData));
 
-    if(!this.title || !this.desc || !this.price || !this.category){
+    if(!this.title || !this.desc || !this.price ){
       this.feildEmpty = true;
 
       setTimeout(()=>{
@@ -79,21 +83,25 @@ export class AdminAddComponent {
       },2000)
       return ;
     }
-    else if(!this.title.trim() || !this.desc.trim() || !this.price.trim() || !this.category.trim()){
-      this.feildEmpty = true;
-
-      setTimeout(()=>{
-        this.feildEmpty = false;
-      },2000)
-      return ;
-    }
-    data.push({
+    
+    data[Number(this.data)] = {
       img:'../../../favicon.ico',
       title:this.title,
       money:Number(this.price),
       desc:this.desc,
-      category:this.category
-    })
+    }
+
+    const result = {
+      index:this.data,
+      img:'../../../favicon.ico',
+      title:this.title,
+      money:Number(this.price),
+      desc:this.desc,
+    }
+
+    console.log(this.data);
+    
+    this.dialogRef.close(result);
 
     this.addClick = true;
 
@@ -104,8 +112,6 @@ export class AdminAddComponent {
     this.title=''
     this.price=''
     this.desc=''
-    this.category=''
     localStorage.setItem("admin",JSON.stringify(data));
   }
-
 }

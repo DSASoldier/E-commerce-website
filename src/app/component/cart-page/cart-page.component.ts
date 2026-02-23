@@ -13,16 +13,15 @@ export class CartPageComponent {
 
   totalPayment: number = 0;
 
-
   calculateTotalPayment(array:any){
 
     let sum = 0;
 
     array.forEach((element: any)=>{
-      sum+=Number(element.money*element.count);
+      sum += Number(element.money*element.count);
     });
 
-    return sum
+    return sum;
   }
   constructor(private dataSource:SourceDataService){
 

@@ -25,6 +25,8 @@ export class ProductPageComponent implements canLogInUserGoBack {
   // totalCart=JSON.parse(localStorage.getItem(`${this.user+'count'}`) || '0');
   totalCart=0;
   
+
+
   constructor(private route: Router,private dataSource: SourceDataService){
 
     this.totalCart = 0;
@@ -43,6 +45,12 @@ export class ProductPageComponent implements canLogInUserGoBack {
       if(element && element.category) this.cat.push(element.category)
     })
 
+  }
+
+  clickClear(){
+    this.search = null;
+    this.category = null;
+    this.priceFilter = null;
   }
 
   poissible(){

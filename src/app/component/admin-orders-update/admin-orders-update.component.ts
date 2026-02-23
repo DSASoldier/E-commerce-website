@@ -8,7 +8,7 @@ import { Title } from '@angular/platform-browser';
 })
 export class AdminOrdersUpdateComponent {
 
-  products = [{title:'',money:'',desc:'',count:'',status:''}];
+  products = [{title:'',money:'',desc:'',count:'',status:'',email:''}];
 
   constructor(){
     const data = JSON.parse(localStorage.getItem("historyData") || "[]");

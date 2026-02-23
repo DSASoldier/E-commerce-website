@@ -11,7 +11,9 @@ export const dashboardGuard: CanActivateFn = (route, state) => {
   if(data===null){
     route2.navigate(['/']);
   }
-
+  if(JSON.parse(data || '').email==='sudeep@gmail.com'){
+    route2.navigate(['/admin-dashboard']);
+  }
 
   return data !== null;
 };

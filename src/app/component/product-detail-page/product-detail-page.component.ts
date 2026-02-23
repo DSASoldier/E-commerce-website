@@ -9,8 +9,6 @@ import { SourceDataService } from 'src/app/source-data.service';
   styleUrls: ['./product-detail-page.component.css']
 })
 export class ProductDetailPageComponent {
-
-
   productDetail : any = {
     src:'',
     title:'',

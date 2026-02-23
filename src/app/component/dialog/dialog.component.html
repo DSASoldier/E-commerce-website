@@ -1,0 +1,45 @@
+<mat-card style="padding: 30px;">
+    <!-- <p>Set the title</p> -->
+    <!-- <input type="text" [(ngModel)]="title"> -->
+    
+    
+
+    <mat-form-field class="example-form-field">
+        <mat-label>Set The Title</mat-label>
+        <input matInput type="text" [(ngModel)]="title">
+        <button *ngIf="title" matSuffix mat-icon-button aria-label="Clear" (click)="title=''">
+            <mat-icon>close</mat-icon>
+        </button>
+    </mat-form-field>
+
+    <br><br>
+    <!-- <p>Set The description</p>
+    <input type="text" [(ngModel)]="desc">-->
+    
+    <mat-form-field class="example-form-field">
+        <mat-label>Set The Description</mat-label>
+        <input matInput type="text" [(ngModel)]="desc">
+        <button *ngIf="desc" matSuffix mat-icon-button aria-label="Clear" (click)="desc=''">
+            <mat-icon>close</mat-icon>
+        </button>
+    </mat-form-field>
+
+    <!-- <p>set the price</p>
+    <input type="text" [(ngModel)]="price">  -->
+    <br><br>
+
+    <mat-form-field class="example-form-field">
+        <mat-label>Set Price</mat-label>
+        <input matInput type="number" [(ngModel)]="price">
+        <button *ngIf="price" matSuffix mat-icon-button aria-label="Clear" (click)="price=''">
+            <mat-icon>close</mat-icon>
+        </button>
+    </mat-form-field>
+
+    <br><br>
+     <button (click)="addTheProduct()"
+     mat-flat-button color="primary">Add</button>
+    <p *ngIf="addClick" style="color: red;">product is added</p>
+    <p *ngIf="feildEmpty" style="color: red;">Field is empty</p>
+
+</mat-card>
